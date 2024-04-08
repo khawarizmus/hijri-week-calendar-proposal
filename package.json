@@ -1,0 +1,15 @@
+{
+  "name": "hijri-week-calendar-standard",
+  "version": "1.0.0-draft.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "release": "bumpp --all --push=false --preid=draft"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bumpp": "^9.4.0"
+  }
+}
