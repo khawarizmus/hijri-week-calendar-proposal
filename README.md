@@ -1,7 +1,7 @@
 # Hijri Week Calendar Standard
 
 > [!IMPORTANT]  
-> This is proposal is still at a draft stage and will undergo some changes.
+> This proposal is still at a draft stage and will undergo some changes.
 
 This is the home repo for the Hijri Week Calendar Standard. The standard is a proposal for an ISO 8601 counterpart for Hijri week dates. The standard is intended to be used in conjunction with already existing Islamic calendar standards, such as the Umm al-Qura calendar, and is designed to be as compatible as possible with the ISO 8601 calendar.
 
