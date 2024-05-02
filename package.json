@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "release": "bumpp --all --push=false --preid=draft package.json package-lock.json README.md"
+    "release": "bumpp --all --push=false --preid=draft package.json package-lock.json README.md",
+    "dev": "typst c main.typ",
+    "dev:watch": "typst w main.typ"
   },
   "keywords": [],
   "author": "",

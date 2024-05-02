@@ -8,9 +8,9 @@
 
 The #gls[Hijri week calendar] (HWC) is a leap week calendar system based on the fundamentals of the ISO 8601 date system.
 
-The HWC specifies a week of year atop any of the compatible Hijri calendars by defining a notation for ordinal weeks of the year. The system is a derivative of the used Hijri calendar and is a standard representation of the underlying Hijri calendar therefore shares the accuracy of the underlying Hijri calendar.
+The HWC specifies a week of year atop any of the compatible Hijri calendars by defining a notation for ordinal weeks of the #gls[year]. The system is a derivative of the used Hijri calendar and is a standard representation of the underlying Hijri calendar therefore shares the accuracy of the underlying Hijri calendar.
 
-The HWC derives a a standard representation from compatible existing Hijri Dates. The resulting #gls[Hijri week date] may be different depending on the underlying Hijri calendar used. Therefore, it is important to reference the #gls[Hijri calendar] with the HWC representation when in need of interportability.
+The HWC derives a a standard representation from compatible existing Hijri #gls[calendar date]s. The resulting #gls[Hijri week date] may be different depending on the underlying Hijri calendar used. Therefore, it is important to reference the #gls[Hijri calendar] with the HWC representation when in need of interportability.
 
 Because the HWC is designed to work with many types of Hijri Calendars, implementers of the HWC may need to create seperate implementations for each Hijri calendar. This should not be seen as a limitation but rather as a versatile feature allowing the HWC to be used with any Hijri calendar that may be introduced in the future.
 
@@ -225,7 +225,7 @@ This notation ensures unambiguous communication by clearly demarcating the conve
 
 == Significance of Muharram's 4th Day in Week Numbering
 
-Within the Hijri week calendar, the 4th weekday, being Tuesday, holds a central position, akin to Thursday in the ISO Week. This alignment underscores the symmetry in the structure of both calendars, each spanning seven days per week. Specifically, the 4th day of Muharram, marking the start of the Hijri year, is designated as the *first week pivot day*. This pivotal day bears resemblance to the 4th of January in the ISO calendar, delineating a key temporal marker with the following characteristics:
+Within the Hijri week calendar, the 4th weekday, being Tuesday, holds a central position, akin to Thursday in the ISO Week. This alignment underscores the symmetry in the structure of both calendars, each spanning seven days per week. Specifically, the 4th day of Muharram, marking the start of the Hijri year, is designated as the #text(weight: "bold")[#gls[first week pivot day]]. This pivotal day bears resemblance to the 4th of January in the ISO calendar, delineating a key temporal marker with the following characteristics:
 
 - *Week 01 Exclusivity:* It exclusively falls within the first week (Week 01) of the Hijri-Week Year, mirroring the structural initiation point of the year.
 - *Uniqueness:* This day does not manifest in any other week, ensuring its role as a singular reference point for the onset of the annual cycle.
@@ -246,7 +246,7 @@ Tuesday, as the central day of the week, assumes a significant role within the H
 - Each Tuesday within a Hijri year is part of the corresponding Hijri-Week Year. Consequently, a Hijri year comprising 50 Tuesdays equates to a Hijri-Week Year with 50 weeks; similarly, 51 Tuesdays correspond to a Hijri-Week Year with 51 weeks.
 - The allocation of days to weeks is guided by proximity to Tuesday. Specifically, Wednesday, Thursday, and Friday are grouped with the preceding Tuesday, while Saturday, Sunday, and Monday align with the succeeding Tuesday.
 
-To pinpoint the specific week for a given Hijri date, one should first locate the nearest Tuesday to that date. This is achieved by adjusting the date's weekday number by subtracting the weekday number from 4, and then adding the resultant offset to the weekday number of the date. Next, determine the yearly ordinal for that Tuesday, counting from the start of the Hijri year. Dividing this ordinal number by 7 and rounding up yields the week number.
+To pinpoint the specific week for a given Hijri date, one should first locate the nearest Tuesday to that date. This is achieved by adjusting the date's weekday number by subtracting the weekday number from 4, and then adding the resultant offset to the weekday number of the date. Next, determine the yearly #gls[ordinal date] for that Tuesday, counting from the start of the Hijri year. Dividing this ordinal number by 7 and rounding up yields the week number.
 
 #tablex(
   columns: 4,
@@ -265,7 +265,7 @@ To pinpoint the specific week for a given Hijri date, one should first locate th
 Let's take the date: Wedensday 18 Shaʿbān 1445 AH using Ummu al-Qura
 based on the table the shift is -1
 so the new date is: Tueday 17 Shaʿbān 1445 AH
-in this case the yearly ordinal number for Tueday 17 Shaʿbān 1445 AH is: 229
+in this case the yearly ordinal date for Tueday 17 Shaʿbān 1445 AH is: 229
 now the week number is: 229 / 7 ≈ 33
 
 this means that Wedensday 18 Shaʿbān occurs on the 33rd week of 1445 AH according to Ummu al-Qura
@@ -350,7 +350,7 @@ The Last Day of the Hijri Year, either the 29th or 30th of Dhu al-Hijja, delinea
 
 == Properties of the Last Week Pivot Day
 
-The Last Week Pivot Day marks a critical reference point in the Hijri-Week Calendar, occurring three days prior to the year's conclusion. Its characteristics are as follows:
+The #gls[last week pivot day] marks a critical reference point in the Hijri-Week Calendar, occurring three days prior to the year's conclusion. Its characteristics are as follows:
 
 - It consistently occurs during the final week of the Hijri-Week Year, either Week 50 or Week 51.
 - It is precisely seven days prior to the 4th of Muharram in the subsequent year.
