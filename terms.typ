@@ -27,17 +27,17 @@
   ]
     
   
-  / calendar date: a particular calendar day represented by its calendar year, its #link("calendar-month")[calendar month] and its #link("calendar-day-of-month")[#gls[calendar day of month]] #label("calendar-date")
+  / calendar date: a particular calendar day represented by its calendar year, its #link("calendar-month")[calendar month] and its #link("calendar-day-of-month")[calendar day of month] #label("calendar-date")
 
   //   // FIXME: the reference style doesn't seem to work
   //   link: [ISO 8601-1:2019, Date and time — Representations for information interchange — Part 1: Basic rules (publicly avaialble informative sections)]
 
 
-  / ordinal date: a particular calendar day represented by its calendar year and its #link("calendar-day-of-year")[#gls[calendar day of year]] #label("ordinal-date")
+  / ordinal date: a particular calendar day represented by its calendar year and its #link("calendar-day-of-year")[calendar day of year] #label("ordinal-date")
 
   //   link: [ISO 8601-1:2019, Date and time — Representations for information interchange — Part 1: Basic rules (publicly avaialble informative sections)]
 
-  / Hijri week date: a particular Hijri calendar day represented by the Hijri calendar year to which its #link("hijri-week-calendar")[#gls[Hijri calendar week]] belongs, its #link("hijri-calendar-week-of-year")[#gls[Hijri calendar week of year]] and its #link("hijri-calendar-day-of-week")[#gls[Hijri calendar day of week]] #label("week-date")
+  / Hijri week date: a particular Hijri calendar day represented by the Hijri calendar year to which its #link("hijri-week-calendar")[Hijri calendar week] belongs, its #link("hijri-calendar-week-of-year")[Hijri calendar week of year] and its #link("hijri-calendar-day-of-week")[Hijri calendar day of week] #label("week-date")
 
   // / calendar day: 
     // Shoudl we define this and do we need to touch on the fact in hijri the start of day is on sunset but we use midnite for now

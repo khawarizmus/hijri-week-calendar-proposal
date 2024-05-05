@@ -1,4 +1,5 @@
 #import "@preview/tablex:0.0.8": tablex, cellx
+#import "@preview/outrageous:0.1.0"
 
 = Introduction
 
@@ -8,7 +9,7 @@ The HWC specifies a week of year atop any of the compatible Hijri calendars by d
 
 The HWC derives a a standard representation from compatible existing Hijri calendar dates. The resulting Hijri week date may be different depending on the underlying Hijri calendar used. Therefore, it is important to reference the Hijri calendar with the HWC representation when in need of interportability.
 
-Because the HWC is designed to work with many types of Hijri Calendars, implementers of the HWC may need to create seperate implementations for each Hijri calendar. This should not be seen as a limitation but rather as a versatile feature allowing the HWC to be used with any Hijri calendar that may be introduced in the future.
+Because the HWC is designed to work with many types of Hijri calendars, implementers of the HWC may need to create seperate implementations for each Hijri calendar. This should not be seen as a limitation but rather as a versatile feature allowing the HWC to be used with any Hijri calendar that may be introduced in the future.
 
 The HWC and its rules are not limited to just the tabular varieties of Hijri calendars. This includes compatibility with calendars such as the Umm al-Qura calendar. For more information on non-compatible Hijri calendars, see @compatible-calendars.
 
@@ -17,11 +18,15 @@ The HWC and its rules are not limited to just the tabular varieties of Hijri cal
 // The Hijri-Week Calendar System corresponds with the Hijri (Islamic) calendar and uses the same year number but its length is defined to be an integral number of weeks rather than months; its beginning can deviate up to a few days from 1 Muharram (the start of the Hijri year) and its end likewise can deviate up to a few days from the end of the Hijri year. On average, however, it remains in step with the Hijri calendar.
 
 #set page(margin: auto)
-
+#set outline(indent: auto)
+#page()[
+  #show outline.entry: outrageous.show-entry
+  #outline()
+]
 
 = Scope
 
-This document does not adress lunar based calendars other then Hijri (Islamic) ones nor does it address lunisolar calendars or hijri calendars that are based on sighting.
+This document does not adress lunar based calendars other then Hijri (Islamic) ones nor does it address lunisolar calendars or Hijri calendars that are based on sighting.
 
 The system defined in this document covers both tabular and non-tabular Hijri calendars.
 
@@ -115,7 +120,7 @@ An instance of an Arithmetical Hijri calendar is the #text(style: "italic")[isla
 
 == Compatibel Calendars <compatible-calendars>
 
-The International Components for Unicode (ICU) defines five Hijri calendars, each with unique characteristics and applications. Below is a detailed breakdown of these calendars and their compatibility with the new Hijri Week Calendar system
+The International Components for Unicode (ICU) defines five Hijri calendars, each with unique characteristics and applications. Below is a detailed breakdown of these calendars and their compatibility with the new Hijri week calendar system
 
 #tablex(
   columns: 4,
@@ -142,7 +147,7 @@ Usage of 'islamic' and 'islamic-rgsa' calendars from ICU is not recommended for 
 
 = Structural elements of Hijri Week calendar
 
-The following sections defines the structural elements and foundational constructs of the Hijri Week Calendar. This calendar system, is comprised of various components and rules that collectively define its operational framework.
+The following sections defines the structural elements and foundational constructs of the Hijri week calendar. This calendar system, is comprised of various components and rules that collectively define its operational framework.
 
 == Hijri Week and Weekdays
 
@@ -158,7 +163,7 @@ The conversion from ISO weekday numbering to Hijri weekday numbering involves a 
 
 + *Adjustment for Friday:* Since the modulo operation maps Friday to 0 (due to the addition in step 1), a final adjustment is necessary. If the result of the modulo operation is 0, it is replaced with 7 to correctly represent Friday as the last day of the Hijri week.
 
-This methodical approach effectively recalibrates the ISO weekday numbering to align with the Hijri calendar's structure, ensuring that each day of the week is accurately represented in the context of the Hijri Week Calendar.
+This methodical approach effectively recalibrates the ISO weekday numbering to align with the Hijri calendar's structure, ensuring that each day of the week is accurately represented in the context of the Hijri week calendar.
 
 The followin table outlines the relationship between Hijri and ISO weekday numbering systems.
 
@@ -181,7 +186,7 @@ In the Hijri week calendar system, a year is categorized as either 'short' or 'l
 - A short year consists of 50 full weeks, summing up to 350 days.
 - A long year encompasses 51 full weeks, totaling 357 days.
 
-This structure contrasts with the typical Hijri year, which generally spans 354 or 355 days. The delineation into short and long years is instrumental for maintaining temporal alignment within the Hijri-Week Calendar system, accommodating variations in the lunar cycle over extended periods.
+This structure contrasts with the typical Hijri year, which generally spans 354 or 355 days. The delineation into short and long years is instrumental for maintaining temporal alignment within the Hijri week calendar system, accommodating variations in the lunar cycle over extended periods.
 
 == Weeks Numbering Rules
 
@@ -231,7 +236,7 @@ Within the Hijri week calendar, the 4th weekday, being Tuesday, holds a central 
 
 // This section is for us to know the week number. previously named The Middle Weekday (Tuesday)
 
-Tuesday, as the central day of the week, assumes a significant role within the Hijri-Week Calendar system, characterized by the following attributes:
+Tuesday, as the central day of the week, assumes a significant role within the Hijri week calendar system, characterized by the following attributes:
 
 - It invariably represents the mid-point of the Hijri Week.
 - It is designated as weekday number 4.
@@ -345,7 +350,7 @@ The Last Day of the Hijri Year, either the 29th or 30th of Dhu al-Hijja, delinea
 
 == Properties of the Last Week Pivot Day
 
-The last week pivot day marks a critical reference point in the Hijri-Week Calendar, occurring three days prior to the year's conclusion. Its characteristics are as follows:
+The last week pivot day marks a critical reference point in the Hijri week calendar, occurring three days prior to the year's conclusion. Its characteristics are as follows:
 
 - It consistently occurs during the final week of the Hijri-Week Year, either Week 50 or Week 51.
 - It is precisely seven days prior to the 4th of Muharram in the subsequent year.
@@ -357,7 +362,7 @@ The last week pivot day marks a critical reference point in the Hijri-Week Calen
 // = Other Days in the First Month of the Hijri Year
 == Week Allocation for Initial Days of Muharram
 
-The initial days of Muharram, the first month of the Hijri Year, have a structured and predictable placement within the Hijri-Week Calendar:
+The initial days of Muharram, the first month of the Hijri Year, have a structured and predictable placement within the Hijri week calendar:
 
 - The 4th of Muharram invariably falls in Week 01.
 - The 11th of Muharram invariably falls in Week 02.
@@ -376,7 +381,7 @@ The initial days of Muharram, the first month of the Hijri Year, have a structur
   ],
 )
 
-*Note*: it must not be assumed that the final month (month 12) being 30 days represents a leap-year in all Hijri Calendars because non-tabular calendars such as Um Al-Qura calendar can have the extra day needed to make-up a leap year inserted at the end of any of the other 29 day months 
+*Note*: it must not be assumed that the final month (month 12) being 30 days represents a leap-year in all Hijri calendars because non-tabular calendars such as Um Al-Qura calendar can have the extra day needed to make-up a leap year inserted at the end of any of the other 29 day months 
 
 == Example of Hijri Year Ending 29 days
 
