@@ -1,16 +1,12 @@
-#import "@preview/gloss-awe:0.0.5": *
 #import "@preview/tablex:0.0.8": tablex, cellx
 
 = Introduction
 
-// Defining, how marked glossary entries in the document appear
-#show figure.where(kind: "jkrb_glossary"): it => { it.body }
+The Hijri week calendar (HWC) is a leap week calendar system based on the fundamentals of the ISO 8601 date system.
 
-The #gls[Hijri week calendar] (HWC) is a leap week calendar system based on the fundamentals of the ISO 8601 date system.
+The HWC specifies a week of year atop any of the compatible Hijri calendars by defining a notation for ordinal weeks of the year. The system is a derivative of the used Hijri calendar and is a standard representation of the underlying Hijri calendar therefore shares the accuracy of the underlying Hijri calendar.
 
-The HWC specifies a week of year atop any of the compatible Hijri calendars by defining a notation for ordinal weeks of the #gls[year]. The system is a derivative of the used Hijri calendar and is a standard representation of the underlying Hijri calendar therefore shares the accuracy of the underlying Hijri calendar.
-
-The HWC derives a a standard representation from compatible existing Hijri #gls[calendar date]s. The resulting #gls[Hijri week date] may be different depending on the underlying Hijri calendar used. Therefore, it is important to reference the #gls[Hijri calendar] with the HWC representation when in need of interportability.
+The HWC derives a a standard representation from compatible existing Hijri calendar dates. The resulting Hijri week date may be different depending on the underlying Hijri calendar used. Therefore, it is important to reference the Hijri calendar with the HWC representation when in need of interportability.
 
 Because the HWC is designed to work with many types of Hijri Calendars, implementers of the HWC may need to create seperate implementations for each Hijri calendar. This should not be seen as a limitation but rather as a versatile feature allowing the HWC to be used with any Hijri calendar that may be introduced in the future.
 
@@ -21,7 +17,6 @@ The HWC and its rules are not limited to just the tabular varieties of Hijri cal
 // The Hijri-Week Calendar System corresponds with the Hijri (Islamic) calendar and uses the same year number but its length is defined to be an integral number of weeks rather than months; its beginning can deviate up to a few days from 1 Muharram (the start of the Hijri year) and its end likewise can deviate up to a few days from the end of the Hijri year. On average, however, it remains in step with the Hijri calendar.
 
 #set page(margin: auto)
-#set quote(quotes: false, block: true)
 
 
 = Scope
@@ -39,7 +34,7 @@ The system defined in this document covers both tabular and non-tabular Hijri ca
 
 = Basics of The Hijri Calendar
 
-The Hijri calendar is a purely lunar calendar based on the phases of the moon. It comprises 12 months, each of either 29 or 30 days, resulting in a Hijri year of either 354 days (#gls[common year]) or 355 days (#gls[leap year]). This discrepancy arises because the lunar month alternates between 29 and 30 days, and a typical lunar year is about 11 days shorter than a solar year.
+The Hijri calendar is a purely lunar calendar based on the phases of the moon. It comprises 12 months, each of either 29 or 30 days, resulting in a Hijri year of either 354 days (common year) or 355 days (leap year). This discrepancy arises because the lunar month alternates between 29 and 30 days, and a typical lunar year is about 11 days shorter than a solar year.
 
 Traditionally, the start of a new day in the Hijri calendar begins after sunset. However, for practical reasons and especially in modern digital implementations, midnight is often used as the start of a new day. This adaptation is mainly for convenience and to align with the globally accepted standard of midnight as the beginning of a calendar day.
 
@@ -225,7 +220,7 @@ This notation ensures unambiguous communication by clearly demarcating the conve
 
 == Significance of Muharram's 4th Day in Week Numbering
 
-Within the Hijri week calendar, the 4th weekday, being Tuesday, holds a central position, akin to Thursday in the ISO Week. This alignment underscores the symmetry in the structure of both calendars, each spanning seven days per week. Specifically, the 4th day of Muharram, marking the start of the Hijri year, is designated as the #text(weight: "bold")[#gls[first week pivot day]]. This pivotal day bears resemblance to the 4th of January in the ISO calendar, delineating a key temporal marker with the following characteristics:
+Within the Hijri week calendar, the 4th weekday, being Tuesday, holds a central position, akin to Thursday in the ISO Week. This alignment underscores the symmetry in the structure of both calendars, each spanning seven days per week. Specifically, the 4th day of Muharram, marking the start of the Hijri year, is designated as the #text(weight: "bold")[first week pivot day]. This pivotal day bears resemblance to the 4th of January in the ISO calendar, delineating a key temporal marker with the following characteristics:
 
 - *Week 01 Exclusivity:* It exclusively falls within the first week (Week 01) of the Hijri-Week Year, mirroring the structural initiation point of the year.
 - *Uniqueness:* This day does not manifest in any other week, ensuring its role as a singular reference point for the onset of the annual cycle.
@@ -246,7 +241,7 @@ Tuesday, as the central day of the week, assumes a significant role within the H
 - Each Tuesday within a Hijri year is part of the corresponding Hijri-Week Year. Consequently, a Hijri year comprising 50 Tuesdays equates to a Hijri-Week Year with 50 weeks; similarly, 51 Tuesdays correspond to a Hijri-Week Year with 51 weeks.
 - The allocation of days to weeks is guided by proximity to Tuesday. Specifically, Wednesday, Thursday, and Friday are grouped with the preceding Tuesday, while Saturday, Sunday, and Monday align with the succeeding Tuesday.
 
-To pinpoint the specific week for a given Hijri date, one should first locate the nearest Tuesday to that date. This is achieved by adjusting the date's weekday number by subtracting the weekday number from 4, and then adding the resultant offset to the weekday number of the date. Next, determine the yearly #gls[ordinal date] for that Tuesday, counting from the start of the Hijri year. Dividing this ordinal number by 7 and rounding up yields the week number.
+To pinpoint the specific week for a given Hijri date, one should first locate the nearest Tuesday to that date. This is achieved by adjusting the date's weekday number by subtracting the weekday number from 4, and then adding the resultant offset to the weekday number of the date. Next, determine the yearly ordinal date for that Tuesday, counting from the start of the Hijri year. Dividing this ordinal number by 7 and rounding up yields the week number.
 
 #tablex(
   columns: 4,
@@ -300,8 +295,8 @@ The First Week (Week 01) of the Hijri-Week Year is characterized by specific tem
 - *Inclusion of the First Tuesday:* Week 01 invariably encompasses the first Tuesday of the Hijri Year, marking it as a significant week.
 - *Minimum Duration:* This week is the earliest in the Hijri-Week Year that contains at least four days, aligning with the structural requirements of the calendar.
 - *Commencement Date Variability:* Depending on the year's structure:
-  - For a year ending on the 29th of Dhu al-Hijja (#gls[year-ending-29]), Week 01 can start as early as the 27th of Dhu al-Hijja of the preceding Hijri year.
-  - For a year concluding on the 30th of Dhu al-Hijja (#gls[year-ending-30]), this week can commence as early as the 28th of Dhu al-Hijja of the preceding Hijri year.
+  - For a year ending on the 29th of Dhu al-Hijja (year-ending-29), Week 01 can start as early as the 27th of Dhu al-Hijja of the preceding Hijri year.
+  - For a year concluding on the 30th of Dhu al-Hijja (year-ending-30), this week can commence as early as the 28th of Dhu al-Hijja of the preceding Hijri year.
 - *Latest Conclusion Date:* The week can extends up to the 4th of Muharram of the subsequent Hijri year.
 - *Guaranteed Span:* Regardless of the starting point, Week 01 always spans a minimum of four days within the starting Hijri year.
 
@@ -350,7 +345,7 @@ The Last Day of the Hijri Year, either the 29th or 30th of Dhu al-Hijja, delinea
 
 == Properties of the Last Week Pivot Day
 
-The #gls[last week pivot day] marks a critical reference point in the Hijri-Week Calendar, occurring three days prior to the year's conclusion. Its characteristics are as follows:
+The last week pivot day marks a critical reference point in the Hijri-Week Calendar, occurring three days prior to the year's conclusion. Its characteristics are as follows:
 
 - It consistently occurs during the final week of the Hijri-Week Year, either Week 50 or Week 51.
 - It is precisely seven days prior to the 4th of Muharram in the subsequent year.
