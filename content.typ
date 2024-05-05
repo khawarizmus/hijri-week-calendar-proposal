@@ -4,7 +4,7 @@
 = Introduction
 
 // Defining, how marked glossary entries in the document appear
-#show figure.where(kind: "jkrb_glossary"): it => {it.body}
+#show figure.where(kind: "jkrb_glossary"): it => { it.body }
 
 The #gls[Hijri week calendar] (HWC) is a leap week calendar system based on the fundamentals of the ISO 8601 date system.
 
@@ -214,7 +214,7 @@ Hence, a complete Hijri week date is represented in the extended format as YYYY-
 
 For instance, the Hijri (Islamic) date *Thursday, 15 Jumad II 1445* translates to the 6th day (Thursday) of the 23rd week in the year 1445. This date is formally expressed in the extended format as *1445-W23-6* and in the compact format as *1445W236*.
 
-== Disambiguating Hijri Year from Hijri-Week Year
+== Disambiguating Hijri Year from Hijri-Week Year <disambiguating-Hijri-Year-from-Hijri-Week-Year>
 
 In the context of date notation, it's essential to distinguish clearly between the Hijri year and the Hijri week year, as they represent different temporal frameworks. The convention for this distinction is as follows:
 
@@ -310,7 +310,7 @@ These characteristics ensure that Week 01 serves as a foundational segment in th
 
 == Concluding Week Dynamics: Week 50 or 51
 
-The Hijri Week year concludes with either Week 50 or Week 51. This final week plays a key role in bridging the transition between years and has a number of characteristics:
+The #link(<disambiguating-Hijri-Year-from-Hijri-Week-Year>)[Hijri week year] concludes with either Week 50 or Week 51. This final week plays a key role in bridging the transition between years and has a number of characteristics:
 
 - *Preceding Week 01:* This week directly precedes Week 01 of the succeeding Hijri-Week Year.
 - *Inclusion of the Last Tuesday:* The year's final Tuesday is always within this week, marking its significance.

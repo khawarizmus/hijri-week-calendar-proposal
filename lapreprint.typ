@@ -132,14 +132,13 @@
   show heading: it => locate(loc => {
     // Find out the final number of the heading counter.
     let levels = counter(heading).at(loc)
-    set text(10pt, weight: 400)
-    if it.level == 1 [
-      // First-level headings are centered smallcaps.
+    set text(10pt, weight: 600)
+    [
       // We don't want to number of the acknowledgment section.
       #let is-ack = it.body in ([Acknowledgment], [Acknowledgement])
       // #set align(center)
       #set text(if is-ack { 10pt } else { 12pt })
-      #show: smallcaps
+      // #show: smallcaps
       #v(20pt, weak: true)
       #if it.numbering != none and not is-ack {
         numbering(heading-numbering, ..levels)
@@ -147,27 +146,44 @@
         h(7pt, weak: true)
       }
       #it.body
-      #v(13.75pt, weak: true)
-    ] else if it.level == 2 [
-      // Second-level headings are run-ins.
-      #set par(first-line-indent: 0pt)
-      #set text(style: "italic")
       #v(10pt, weak: true)
-      #if it.numbering != none {
-        numbering(heading-numbering, ..levels)
-        [.]
-        h(7pt, weak: true)
-      }
-      #it.body
-      #v(10pt, weak: true)
-    ] else [
-      // Third level headings are run-ins too, but different.
-      #if it.level == 3 {
-        numbering(heading-numbering, ..levels)
-        [. ]
-      }
-      _#(it.body):_
     ]
+    // if it.level == 1 [
+    //   // First-level headings are centered smallcaps.
+    //   // We don't want to number of the acknowledgment section.
+    //   #let is-ack = it.body in ([Acknowledgment], [Acknowledgement])
+    //   // #set align(center)
+    //   #set text(if is-ack { 10pt } else { 12pt })
+    //   #show: smallcaps
+    //   #v(20pt, weak: true)
+    //   #if it.numbering != none and not is-ack {
+    //     numbering(heading-numbering, ..levels)
+    //     [.]
+    //     h(7pt, weak: true)
+    //   }
+    //   #it.body
+    //   #v(13.75pt, weak: true)
+    // ] else if it.level == 2 [
+    //   // Second-level headings are run-ins.
+    //   #set par(first-line-indent: 0pt)
+    //   // #set text(style: "italic")
+    //   // #set text(12pt)
+    //   #v(10pt, weak: true)
+    //   #if it.numbering != none {
+    //     numbering(heading-numbering, ..levels)
+    //     [.]
+    //     h(7pt, weak: true)
+    //   }
+    //   #it.body
+    //   #v(10pt, weak: true)
+    // ] else [
+    //   // Third level headings are run-ins too, but different.
+    //   #if it.level == 3 {
+    //     numbering(heading-numbering, ..levels)
+    //     [. ]
+    //   }
+    //   _#(it.body):_
+    // ]
   })
 
 

@@ -147,7 +147,7 @@
 
 // source: ISO 8601-1:2019, Date and time — Representations for information interchange — Part 1: Basic rules (publicly avaialble informative sections)
 
-#make-glossary(glossary-pool, heading: it => { heading(level: 2, numbering: none, outlined: false, it)})
+#make-glossary(glossary-pool, heading: it => { heading(level: 50, numbering: none, outlined: false, it)})
 
 // - Year-Ending30         : A Hijri Year that has the last month Dhu Al-Hijjah (month 12) with 30 days.
 // - Year-Ending29         : A Hijri Year that has the last month Dhu Al-Hijjah (month 12) with 29 days.
