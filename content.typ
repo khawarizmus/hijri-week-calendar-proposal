@@ -9,7 +9,7 @@ The HWC specifies a week of year atop any of the compatible Hijri calendars by d
 
 Because the HWC is designed to work with many types of Hijri calendars, implementers of the HWC may need to create seperate implementations for each Hijri calendar. This should not be seen as a limitation but rather as a versatile feature allowing the HWC to be used with any Hijri calendar that may be introduced in the future.
 
-The HWC and its rules are not limited to just the tabular varieties of Hijri calendars. This includes compatibility with calendars such as the Umm al-Qura calendar. For more information on compatible and non-compatible Hijri calendars, see @compatible-calendars.
+The HWC and its rules are not limited to just the tabular varieties of Hijri calendars. This includes compatibility with calendars such as the Umm Al-Qura calendar. For more information on compatible and non-compatible Hijri calendars, see @compatible-calendars.
 
 // The week numbering scheme of the Hijri-Week Calendar System introduced in this document closely follows that introduced by the ISO 8601 with minor deviations which are specific to the nature of the Hijri calendars.
 
@@ -37,36 +37,34 @@ The system defined in this document covers both tabular and non-tabular Hijri ca
 
 = Introduction to the Hijri Calendar
 
-The Hijri calendar is a purely lunar calendar based on the phases of the moon. It comprises 12 months, each of either 29 or 30 days, resulting in a Hijri year of either 354 days (common year) or 355 days (leap year). This discrepancy arises because the lunar month alternates between 29 and 30 days, and a typical lunar year is about 11 days shorter than a solar year.
+The Hijri calendar is a purely lunar calendar based on the phases of the moon. It comprises 12 months, each of either 29 or 30 days, resulting in a Hijri year of either 354 days (common year) or 355 days (leap year). This discrepancy arises because a lunar month alternates between 29 and 30 days. A typical Hijri  year is about 11 days shorter than a Gregorian year.
 
-Traditionally, the start of a new day in the Hijri calendar begins after sunset. However, for practical reasons and especially in modern digital implementations, midnight is often used as the start of a new day. This adaptation is mainly for convenience and to align with the globally accepted standard of midnight as the beginning of a calendar day.
+The start of a new day in the Hijri calendar begins after sunset. However, for practical reasons and especially in modern digital implementations, midnight is often used as the start of a new day. This adaptation is mainly for convenience and to align with the globally accepted standard of midnight as the beginning of a calendar day.
 
-A leap year in the Hijri calendar has 355 days. There is no specific month that determines if a year is a leap year. This distinction is crucial as the additional day in a leap year can be placed in any of the 29-day months.
-
-However, tabular-based Hijri calendars consist of 12 alternating months of 30 and 29 days (30 days for odd months and 29 days for even months), with the final 29-day month (month 12, Thul-Hijja) extended to 30 days during leap Hijri years making it the month that determines if a year is leap.
-
-// <r>However, it **<r>must not** be assumed that the final month (month 12) being 30 days represents a leap-year in all Hijri Calendars because non-tabular calendars such as Um Al-Qura calendar can have the extra day needed to make-up a leap year inserted at the end of any of the other 29 day months.</r>
+A leap year in the Hijri calendar has 355 days. There is no specific month that determines if a year is a leap year. This distinction is crucial as the additional day in a leap year can be placed in any of the 29-day months. However, tabular-based Hijri calendars consist of 12 alternating months of 30 and 29 days (30 days for odd months and 29 days for even months), with the final 29-day month (month 12, Dhu al-Hijja) extended to 30 days during leap Hijri years making it the month that determines if a year is leap.
 
 == Types of Hijri Calendars
 
-The Hijri calendar, with its lunar foundation and religious significance, exhibits diverse methodologies in its interpretation and application. These methodologies, varying in their reliance on observational techniques or mathematical calculations, have led to the development of distinct types of Hijri calendars. Each type caters to specific needs, ranging from the precise determination of religious observances to the use in administrative and digital systems. This section categorizes the Hijri calendars into two main categories: Sight-Based, Algorithmic, with further subdivisions into Astronomical, Tabular and Arithmetical under Algorithmic, providing a structured overview of their unique characteristics and methodologies.
+The Hijri calendar, with its lunar foundation and religious significance, exhibits diverse methodologies in its interpretation and application. These methodologies, varying in their reliance on observational techniques or mathematical calculations, have led to the development of distinct types of Hijri calendars. Each type caters to specific needs, ranging from the precise determination of religious observances to the use in administrative and digital systems. This section categorizes Hijri calendars into two main categories: Sighting-based, and Algorithmic; the latter is further categorized into Astronomical, Tabular and Arithmetical.
 
-=== Observational
+=== Sighting-based
 
-The observational Hijri calendar is anchored in the traditional practice of visually sighting the new moon to determine the commencement of each month, which, in turn, establishes the length of the year. This method holds profound religious significance and remains prevalent in many Muslim countries today. Its adherence to the moon's phases ensures its close alignment with Islamic rituals and festivities.
+Sighting-based Hijri calendars are anchored in the traditional practice of sighting the new moon to determine the commencement of each month, which, in turn, establishes the length of the year. This method holds profound religious significance and remains prevalent in many Muslim countries today to determine Islamic rites and festivities.
 
-However, the observational calendar is inherently location-specific, leading to potential variations in the start of the month across different regions. The reliance on moon sighting introduces a degree of unpredictability, making it challenging to forecast future dates with precision. As a result, while it is deeply integrated into religious observances, its application for administrative and day-to-day planning purposes is limited. The calendar's lack of uniformity and the difficulty in predicting long-term dates necessitate alternative systems for civil and formal scheduling needs.
+However, sigting-based calendars are inherently location-specific, leading to potential variations in the start of the month across different regions. The reliance on moon sighting introduces a degree of unpredictability, making it challenging to forecast future dates with precision. As a result, while it is deeply integrated into religious observances, its application for administrative and day-to-day planning purposes is limited. The calendars' lack of uniformity and the difficulty in predicting long-term dates necessitate alternative systems for civil and formal scheduling needs.
 
 === Algorithmic
 
-In response to the need for precise and reliable long-term scheduling, algorithmic calendars have been developed. Unlike traditional calendars that rely on the visual sighting of the moon, these calendars are based on a specific set of deterministic rules. The predictability and consistency of these rule-based systems make them particularly suited for administrative and civil purposes, as well as for ensuring uniformity in global communications and operations. Algorithmic calendars effectively align the lunar cycle with standardized calculations, offering a practical solution for managing time in various professional and international contexts. 
+In response to the need for precise and reliable long-term scheduling, algorithmic calendars were developed. Unlike sighting-based calendars, these calendars are based on a specific set of deterministic rules. The predictability and consistency of these rule-based systems make them particularly suited for administrative and civil purposes, as well as for ensuring uniformity in global communications and operations. Algorithmic calendars effectively align the lunar cycle with standardized calculations, offering a practical solution for managing time in various professional and international contexts. 
 
 ==== Tabular
 
-Tabular Hijri calendars employ a systematic arrangement of months, alternating between 30 and 29 days. Specifically, odd-numbered months consist of 30 days, while even-numbered months have 29 days. Leap years introduce a modification to this pattern by extending the final (12th) month from 29 to 30 days, adjusting the yearly total to 355 days.
+Tabular Hijri calendars employ a systematic arrangement of months, alternating between 30 and 29 days. Specifically, odd-numbered months consist of 30 days, while even-numbered months have 29 days. Leap years introduce a modification to this pattern by extending the final month (12th month) from 29 to 30 days, adjusting the yearly total to 355 days.
 
 The structure of Tabular Hijri calendars is cyclical, encompassing a 30-year period. Within this cycle, there are 19 common years, each with a duration of 354 days, and 11 leap years, each lasting 355 days. The aggregate of days over the entire cycle amounts to 10,631. The allocation of leap years is methodical, adhering to one of four distinct schemas:
 
+// docs of tablex: https://github.com/PgBiel/typst-tablex
+// TODO: fix the quotes to a caption
 #tablex(
   columns: 2,
   [Type],[Intercalary years with 355 days inserted at year No],
@@ -76,72 +74,74 @@ The structure of Tabular Hijri calendars is cyclical, encompassing a 30-year per
   [Type IV], [2, 5, 8, #text(orange, weight: "bold")[11], 13, 16, 19, 21, 24, 27, #text(orange, weight: "bold")[30]]
 )
 
+#quote([
+  Note: The highlighted years in each schema signefies the difference of each schema relative to Type II.
+])
+
 Among these, Type II is most prevalent and is the exclusive choice in the context of the International Components for Unicode (ICU). Specifically, ICU employs the Type II schema for its #text(style: "italic")[islamic-civil] and #text(style: "italic")[islamic-tbla] calendars, though each calendar operates on its distinct epoch, differentiating their respective computations and applications.
 
-In terms of temporal precision, the Tabular Hijri calendar exhibits a mean year length of 354.366667 days and an average month duration of 29.530555 days. These figures closely mirror the synodic month, which spans 29.530588853 days, leading to a marginal deviation of roughly 0.000033298 day per month. Over an extended timeframe, this discrepancy results in a one-day shift relative to the lunar cycle every approximately 2,570 Hijri years.
+In terms of temporal precision, the Tabular Hijri calendar exhibits a mean year length of 354.366667 days and an average month duration of 29.530555 days. These figures closely mirror the synodic month, which spans 29.530588853 days, leading to a marginal deviation of roughly 0.000033298 day per month. Over an extended timeframe, this discrepancy results in a one-day shift relative to the lunar cycle approximately every 2,570 Hijri years.
 
 ==== Astronomical
 
-Astronomical Hijri calendars are based on precise calculations of lunar positions and phases, These calendars determine the start of each month by calculating the actual lunar phases, specifically the conjunction (the moment when the Moon is directly between the Earth and the Sun) and the moonset after sunset at a specific location. 
+Astronomical Hijri calendars determine the start of each month based on precise calculations of the lunar phases, specifically the conjunction (the moment when the moon is directly between the earth and the sun) and the moonset after sunset at a specific location.
 
-These systems utilize astronomical data to predict the start of each lunar month, aligning the calendar with the moon's cycles in a systematic and location-specific manner.
+These calendars utilize astronomical data to predict the start of each lunar month, aligning the calendar with the moon's cycles in a systematic and location-specific way.
 
 *Key Characteristics of Astronomical Hijri Calendars:*
 
-- *Conjunction-Based Initiation:* The commencement of each month is determined by the calculated time of the lunar conjunction, the point at which the Moon and the Sun align as viewed from Earth.
+// TODO: double check if this is true
+- *Conjunction-based Initiation:* The commencement of each month is determined by the calculated time of the lunar conjunction, the point at which the moon and the sun align as viewed from Earth.
 
-- *Location-Specific Calculations:* The calendar's calculations are tailored to the conditions of moon visibility at a particular geographic location, ensuring the calendar's alignment with local observational parameters.
+- *Location-specific Calculations:* The calendar's calculations are tailored to the conditions of moon visibility at a particular geographic location, ensuring the calendar's alignment with local observational parameters.
 
-- *Consistency and Precision:* These calendars offer a uniform structure, avoiding the variability inherent in direct moon sighting. Their reliance on precise astronomical data makes them particularly suited for civil and official use where consistency is key.
+- *Consistency and Precision:* These calendars offer a uniform structure, avoiding the variability inherent in direct moon sighting. Their reliance on precise astronomical data makes them particularly suited for civil and administrative use where consistency is key.
 
-Astronomical Hijri calendars provide a standardized approach to aligning with the lunar cycle, merging traditional lunar timing with exact astronomical calculations to establish a reliable framework for civil dates and official planning.
+Astronomical Hijri calendars provide a standardized approach to aligning with the lunar cycle, merging traditional lunar timing with exact astronomical calculations to establish a reliable framework for civil dates and administrative planning.
 
 
-The Umm al-Qura calendar or #text(style: "italic")[islamic-umalqura] under the ICU, which is used as the civil calendar in Saudi Arabia, exemplifies this approach. Its calculations are based on the moon's conjunction and visibility criteria specific to Makkah. However, it's important to note that this calendar, while influential in civil contexts, is not used for determining religious observances that require actual moon sighting, such as the start of Ramadan or the Hajj dates.
+The Umm Al-Qura calendar or #text(style: "italic")[islamic-umalqura] as per the ICU, which is used as the civil calendar in Saudi Arabia, exemplifies this approach. Its calculations are based on the moon's conjunction and visibility criteria specific to Makkah. However, it's important to note that this calendar, while influential in civil contexts, is not used for determining religious observances that require actual moon sighting, such as the start of Ramadan or the Hajj dates.
 
 ==== Arithmetical
 
-Arithmetical Hijri calendars calculate Hijri dates using predetermined arithmetic rules to systematically convert dates from established calendar systems, like the Gregorian calendar. These calendars are not reliant on lunar observations but on fixed arithmetic formulas to ensure consistent and predictable date management across different systems.
+Arithmetical Hijri calendars calculate Hijri dates using predetermined arithmetic rules to systematically convert dates from established calendar systems such as the Gregorian calendar. These calendars are not reliant on lunar observations but on fixed arithmetic formulas to ensure consistent and predictable date management.
 
-An instance of an Arithmetical Hijri calendar is the #text(style: "italic")[islamic] calendar as implemented in the ICU. While this calendar provides a structured and algorithmic approach to converting Gregorian dates to Hijri dates, the implementation has certain limitations:
+An instance of an arithmetical Hijri calendar is the #text(style: "italic")[islamic] calendar as implemented by the ICU. While this calendar provides a structured and algorithmic approach to converting Gregorian dates to Hijri dates, the implementation has certain limitations:
 
-*Ad-hoc Conversion Method:* The algorithm uses a rough estimation method, which is primarily effective within a specific range of years. It is noted in the implementation that this method is roughly accurate for Gregorian years 1846-2138, with known accuracy issues outside this range.
+*Bounded accuracy:* The algorithm uses a rough estimation method, which is primarily effective within a specific range of years. It is noted in the implementation that this method is roughly accurate for Gregorian years 1846-2138, with an estimated error rate of 3% outside this range.
 
 // source: https://github.com/unicode-org/icu/blob/main/icu4c/source/i18n/islamcal.cpp#L572
 
-*Error Rate:* The conversion process is a rough estimate that works for gregorian years in the range of 1846-2138. Otherwise, it produces an error rate estimated at about 3% of years outside that range.
-
-*Implementation Limitations:* The code includes specific limitations, such as inaccurate handling of negative years and months potentially having up to 31 days, which deviates from the actual lunar month length making it incompatible with HWC.
+// TODO: Khalid to double check how to rephrase this
+*Implementation inaccuracies:* The current implementation inaccurately handles negative years (before the Hijra) and months can potentially have up to 31 days, which deviates from the actual lunar month length making it incompatible with HWC.
 
 // source: https://github.com/unicode-org/icu/blob/main/icu4c/source/i18n/islamcal.cpp#L229
 
 
 == Compatible Calendars <compatible-calendars>
 
-The International Components for Unicode (ICU) defines five Hijri calendars, each with unique characteristics and applications. Below is a detailed breakdown of these calendars and their compatibility with the new Hijri week calendar system
+The ICU defines five Hijri calendars, each with unique characteristics and applications. Below is a detailed breakdown of these calendars and their compatibility with the HWC system.
 
 #tablex(
   columns: 4,
-  [Calendar], [Compatibility], [Type], [Notes],
+  [Calendar], [Compatible], [Type], [Notes],
   
-  [islamic-civil], [Compatible], [Tabular calendar], [ The 'islamic-civil' calendar uses a tabular format with leap years [*2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29*] and a Friday epoch. Also known as "islamic-tblc" or 'islamicc', it sets its epoch to 19 July 622 Gregorian (16 July 622 CE Julian, Julian day 1948439.5).],
+  [islamic-civil], [Yes], [Tabular calendar], [ The #text(style: "italic")[islamic-civil] calendar uses a tabular format with leap years [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29] and a Friday epoch. Also known as #text(style: "italic")[islamic-tblc] or #text(style: "italic")[islamicc], it sets its epoch to 19 July 622 Gregorian (16 July 622 CE Julian, Julian day 1948439.5).],
 
-[islamic-tbla], [Compatible], [Tabular calendar], [ The 'islamic-tbla' calendar follows a tabular format with leap years [*2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29*] and a Thursday epoch. Known as Microsoft Hijri (Kuwaiti) calendar, it's used in the .NET Framework's HijriCalendar Class. Its epoch is 18 July 622 Gregorian (15 July 622 CE Julian, Julian day 1948438.5).],
+[islamic-tbla], [Yes], [Tabular calendar], [ The #text(style: "italic")[islamic-tbla] calendar follows a tabular format with leap years [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29] and a Thursday epoch. Known as Microsoft Hijri (Kuwaiti) calendar, it's used in the .NET Framework's HijriCalendar Class. Its epoch is 18 July 622 Gregorian (15 July 622 CE Julian, Julian day 1948438.5).],
 
-[islamic-umalqura], [Compatible], [Astronomical calendar], [ The 'islamic-umalqura' calendar, used in Saudi Arabia, combines moon sighting and astronomical predictions for 1300-1600 AH. Outside this range, it follows the 'islamic-civil' tabular format with leap years [*2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29*]. Its epoch is set to 19 July 622 in the Gregorian calendar (Julian day 1948439.5).],
+[islamic-umalqura], [Yes], [Astronomical calendar], [ The #text(style: "italic")[islamic-umalqura] calendar, used in Saudi Arabia, combines moon sighting and astronomical predictions for 1300-1600 AH. Outside this range, it follows the #text(style: "italic")[islamic-civil] tabular format with leap years [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29]. Its epoch is set to 19 July 622 in the Gregorian calendar (16 July 622 CE Julian, Julian day 1948439.5).],
 
-[islamic], [Not Compatible], [Arethmitical calendar], [ Known implementation issues, with inaccuracies in some years.],
+[islamic], [No], [Arithmetical calendar], [ Known implementation issues, with inaccuracies in some years and months.],
 
-[islamic-rgsa], [Not Compatible], [Arethmitical calendar], [Requested by Oracle thsi calendar was intended to mimic sighting calendar for Saudi Arabia. The implementation was never realized and is now an alias for the 'islamic' calendar hence contains the same issues.]
+[islamic-rgsa], [No], [Arithmetical calendar], [Requested by Oracle. This calendar was intended to mimic the sighting-based calendar for Saudi Arabia. The implementation was never realized and is now an alias for the #text(style: "italic")[islamic] calendar and hence contains the same issues.]
 )
 
 === Recommendation and Note
 
-// TODO: make the ICU names italic
+The #text(style: "italic")[islamic-civil] and #text(style: "italic")[islamic-tbla] calendars both adhere to the same intercalary leap year sequence [2,5,7,10,13,16,18,21,24,26,29], following the al-Khwarizmi/al-Battani method from the 9th century CE. However, they diverge by one day due to different epochs, with #text(style: "italic")[islamic-tbla] being a day earlier than #text(style: "italic")[islamic-civil].
 
-The 'islamic-civil' and 'islamic-tbla' calendars both adhere to the same intercalary leap year sequence *[2,5,7,10,13,16,18,21,24,26,29]*, following the al-Khwarizmi/al-Battani method from the 9th century CE. However, they diverge by one day due to different epochs, with 'islamic-tbla' being a day earlier than 'islamic-civil'.
-
-Usage of 'islamic' and 'islamic-rgsa' calendars from ICU is not recommended for any application not only when using the HWC, until such time the ICU implementation has been fixed.
+Usage of #text(style: "italic")[islamic] and #text(style: "italic")[islamic-rgsa] calendars from the ICU is not recommended, even when using the HWC until such time the ICU implementation is fixed.
 
 = Structural Elements of the Hijri Week Calendar
 
@@ -230,7 +230,7 @@ When working with different systems that use the Hijri week calendar or when usi
 
 By associating the Hijri week date with the underlying Hijri calendar, one can precisely determine the corresponding Hijri date, ensuring consistency and accuracy in date representation across different systems and contexts.
 
-For example, the Hijri week date *1445-W23-6[cu-a=islamic-umalqura]* must be accompanied by the underlying Hijri calendar, such as the Umm al-Qura calendar, to accurately ascertain the corresponding Hijri date.
+For example, the Hijri week date *1445-W23-6[cu-a=islamic-umalqura]* must be accompanied by the underlying Hijri calendar, such as the Umm Al-Qura calendar, to accurately ascertain the corresponding Hijri date.
 
 == Significance of Muharram's 4th Day in Week Numbering
 
