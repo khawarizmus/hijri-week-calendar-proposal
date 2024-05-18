@@ -3,15 +3,13 @@
 
 = Introduction
 
-The Hijri week calendar (HWC) is a leap week calendar system based on the fundamentals of the ISO 8601 date system.
+The Hijri week calendar (HWC) is a leap week date system based on the fundamentals of the ISO 8601 week date system.
 
-The HWC specifies a week of year atop any of the compatible Hijri calendars by defining a notation for ordinal weeks of the year. The system is a derivative of the used Hijri calendar and is a standard representation of the underlying Hijri calendar therefore shares the accuracy of the underlying Hijri calendar.
-
-The HWC derives a a standard representation from compatible existing Hijri calendar dates. The resulting Hijri week date may be different depending on the underlying Hijri calendar used. Therefore, it is important to reference the Hijri calendar with the HWC representation when in need of interportability.
+The HWC specifies a week of year atop any of the compatible Hijri calendars by defining a notation for ordinal weeks of the year. The HWC is a standard representation of the underlying Hijri calendar and therefore shares the accuracy of the underlying Hijri calendar. The resulting Hijri week date may be different depending on the underlying Hijri calendar used. Therefore, it is important to reference the Hijri calendar with the HWC representation when in need of interoperability.
 
 Because the HWC is designed to work with many types of Hijri calendars, implementers of the HWC may need to create seperate implementations for each Hijri calendar. This should not be seen as a limitation but rather as a versatile feature allowing the HWC to be used with any Hijri calendar that may be introduced in the future.
 
-The HWC and its rules are not limited to just the tabular varieties of Hijri calendars. This includes compatibility with calendars such as the Umm al-Qura calendar. For more information on non-compatible Hijri calendars, see @compatible-calendars.
+The HWC and its rules are not limited to just the tabular varieties of Hijri calendars. This includes compatibility with calendars such as the Umm al-Qura calendar. For more information on compatible and non-compatible Hijri calendars, see @compatible-calendars.
 
 // The week numbering scheme of the Hijri-Week Calendar System introduced in this document closely follows that introduced by the ISO 8601 with minor deviations which are specific to the nature of the Hijri calendars.
 
@@ -26,7 +24,7 @@ The HWC and its rules are not limited to just the tabular varieties of Hijri cal
 
 = Scope
 
-This document does not adress lunar based calendars other then Hijri (Islamic) ones nor does it address lunisolar calendars or Hijri calendars that are based on sighting.
+This document does not address lunar based calendars other than Hijri (Islamic) ones nor does it address lunisolar calendars or Hijri calendars that are based on sighting.
 
 The system defined in this document covers both tabular and non-tabular Hijri calendars.
 
@@ -37,7 +35,7 @@ The system defined in this document covers both tabular and non-tabular Hijri ca
 
 
 
-= Basics of The Hijri Calendar
+= Introduction to the Hijri Calendar
 
 The Hijri calendar is a purely lunar calendar based on the phases of the moon. It comprises 12 months, each of either 29 or 30 days, resulting in a Hijri year of either 354 days (common year) or 355 days (leap year). This discrepancy arises because the lunar month alternates between 29 and 30 days, and a typical lunar year is about 11 days shorter than a solar year.
 
@@ -118,7 +116,7 @@ An instance of an Arithmetical Hijri calendar is the #text(style: "italic")[isla
 // source: https://github.com/unicode-org/icu/blob/main/icu4c/source/i18n/islamcal.cpp#L229
 
 
-== Compatibel Calendars <compatible-calendars>
+== Compatible Calendars <compatible-calendars>
 
 The International Components for Unicode (ICU) defines five Hijri calendars, each with unique characteristics and applications. Below is a detailed breakdown of these calendars and their compatibility with the new Hijri week calendar system
 
@@ -145,7 +143,7 @@ The 'islamic-civil' and 'islamic-tbla' calendars both adhere to the same interca
 
 Usage of 'islamic' and 'islamic-rgsa' calendars from ICU is not recommended for any application not only when using the HWC, until such time the ICU implementation has been fixed.
 
-= Structural elements of Hijri Week calendar
+= Structural Elements of the Hijri Week Calendar
 
 The following sections defines the structural elements and foundational constructs of the Hijri week calendar. This calendar system, is comprised of various components and rules that collectively define its operational framework.
 
@@ -202,7 +200,7 @@ This adjustment ensures that each Hijri week calendar year aligns consistently w
 // we chose tuesday because weeks should start on saturday
 // weeks should start on satruday beacuse of relegious conciderations (friday last day)
 
-== Formatting the Hijri-Week Date System
+== Formatting the Hijri Week Date System
 
 In the Hijri week calendar, dates are structured to ensure clarity and standardization, closely paralleling the format utilized by the ISO week-numbering system. The format components are as follows:
 
@@ -222,6 +220,17 @@ In the context of date notation, it's essential to distinguish clearly between t
 - *Hijri week year:* Similar to the Hijri Year but differentiated by appending a 'W' before the 'AH' suffix. This signifies adherence to the Hijri week calendar system. Thus, the Hijri week year corresponding to 1445 AH would be denoted as *1445W AH*.
 
 This notation ensures unambiguous communication by clearly demarcating the conventional Hijri calendar from the Hijri week calednar system.
+
+== Encoding the Hijri Week Date With the Underlying Hijri Calendar
+
+When working with different systems that use the Hijri week calendar or when using different Hijri calendars withing the a system that uses the Hijri week calendar, it is essential to specify the underlying Hijri calendar for any specefic Hijri week date to ensure accurate date conversion from a Hijri week date to a Hijri date. The encoding of the Hijri week date with the underlying Hijri calendar is as follows:
+
+- *Hijri Week Date:* Expressed in the format YYYY-Www-d or YYYYWwwd.
+- *Underlying Hijri Calendar:* The specific Hijri calendar used to determine the corresponding Hijri date. This information is crucial for accurate conversion from the Hijri week date to the Hijri date.
+
+By associating the Hijri week date with the underlying Hijri calendar, one can precisely determine the corresponding Hijri date, ensuring consistency and accuracy in date representation across different systems and contexts.
+
+For example, the Hijri week date *1445-W23-6[cu-a=islamic-umalqura]* must be accompanied by the underlying Hijri calendar, such as the Umm al-Qura calendar, to accurately ascertain the corresponding Hijri date.
 
 == Significance of Muharram's 4th Day in Week Numbering
 
