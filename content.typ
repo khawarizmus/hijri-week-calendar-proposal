@@ -260,7 +260,11 @@ As the central day of the week, Tuesday assumes a significant role within the HW
 - Each Tuesday within a Hijri year is part of the corresponding HWC year. Consequently, a Hijri year comprising 50 Tuesdays equates to a HWC year with 50 weeks; similarly, 51 Tuesdays correspond to a HWC year with 51 weeks.
 - The allocation of days to weeks is guided by proximity to Tuesday. Specifically, Wednesday, Thursday, and Friday are grouped with the preceding Tuesday, while Saturday, Sunday, and Monday align with the succeeding Tuesday.
 
-To pinpoint the specific week for a given Hijri date, one should first locate the nearest Tuesday to that date. This is achieved by adjusting the date's weekday number by subtracting the weekday number from 4, and then adding the resultant offset to the weekday number of the date. Next, determine the yearly ordinal date for that Tuesday, counting from the start of the Hijri year. Dividing this ordinal number by 7 and rounding up yields the week number.
+To calculate the specific week number for a given Hijri date:
+1. Locate the nearest Tuesday to that date. This is achieved by adjusting the date's weekday number by subtracting the weekday number from 4 (Tuesday).
+2. Shift the date by the resulting offset from step 1 to move towards the nearest Tuesday.
+3. Determine the yearly ordinal date for the date obtained from step 2.
+4. Divide the yearly ordinal date number from step 3 by 7 and round it up. This results in the week number counting from the start of the Hijri year.
 
 #tablex(
   columns: 4,
@@ -276,20 +280,21 @@ To pinpoint the specific week for a given Hijri date, one should first locate th
 
 *Example:*
 
-Let's take the date: Wedensday 18 Shaʿbān 1445 AH using Ummu al-Qura
-based on the table the shift is -1
-so the new date is: Tueday 17 Shaʿbān 1445 AH
-in this case the yearly ordinal date for Tueday 17 Shaʿbān 1445 AH is: 229
-now the week number is: 229 / 7 ≈ 33
+Consider the date: Wednesday 18 Shaʿbān 1445 AH using Umm Al-Qura Hijri calendar.
 
-this means that Wedensday 18 Shaʿbān occurs on the 33rd week of 1445 AH according to Ummu al-Qura
+1. Based on the table the shift is -1 (i.e 4 - 5).
+2. Shifting the date by -1 days results in Tueday 17 Shaʿbān 1445 AH.
+3. Tueday 17 Shaʿbān 1445 AH yearly ordinal date is: 229.
+4. We determine the week number by dividing the ordinal date and rounding it up: 229 / 7 ≈ 33.
+
+This means that Wednesday 18 Shaʿbān occurs on the 33rd week of 1445 AH as per the Umm Al-Qura Hijri calendar
 
 
-== Hijri-Year Commencements and Its Length
+== The Beginning of The HWC Year and its Length
 
 // this section is for us to know the total weeks in a hijri year and the one after it. previously named First Day of the Hijri Year
 
-The first day of the Hijri year directly determines the number of weeks in the corresponding HWC year. The week count varies based on whether it's a common or leap year and the weekday of the year's first day:
+The first day of the Hijri year directly determines the number of weeks in the corresponding HWC year. The week count varies based on whether it's a common year or leap year and the weekday of the year's first day:
 
 *Common Hijri Year:*
 
@@ -303,86 +308,88 @@ The first day of the Hijri year directly determines the number of weeks in the c
 
 *Next Year's Start:*
 
-- If the next Hijri Year begins on Sun, Mon, or Tue (days 2-4) (or on Mon or Tue in a leap year), the current year will have 50 weeks. Otherwise, it will have 51 weeks.
+- If the next Hijri year is a common year and begins on Sun, Mon or Tue (days 2-4) then the current year will have 50 weeks. Otherwise, it will have 51 weeks.
+- If the next Hijri year is a leap year and begins on Mon or Tue (days 3 and 4) then the current year will have 50 weeks. Otherwise, it will have 51 weeks.
 
-The starting day of the Hijri Year is critical for defining the total weeks in the HWC year, aligning with the Hijri lunar calendar's structure.
+The starting day of the Hijri Year is critical for defining the total weeks in the HWC year, aligning with the underlying Hijri calendar's structure.
 
 == Characteristics of The First Week (Week 01)
 
-The First Week (Week 01) of the HWC year is characterized by specific temporal properties that establish its position and duration within the calendar system. These properties are:
+The first week (week 01) of the HWC year is characterized by specific temporal properties that establish its position and duration within the calendar system. These properties are:
 
-- *Inclusion of the First Tuesday:* Week 01 invariably encompasses the first Tuesday of the Hijri Year, marking it as a significant week.
-- *Minimum Duration:* This week is the earliest in the HWC year that contains at least four days, aligning with the structural requirements of the calendar.
-- *Commencement Date Variability:* Depending on the year's structure:
-  - For a year ending on the 29th of Dhu al-Hijja (year-ending-29), Week 01 can start as early as the 27th of Dhu al-Hijja of the preceding Hijri year.
-  - For a year concluding on the 30th of Dhu al-Hijja (year-ending-30), this week can commence as early as the 28th of Dhu al-Hijja of the preceding Hijri year.
-- *Latest Conclusion Date:* The week can extends up to the 4th of Muharram of the subsequent Hijri year.
-- *Guaranteed Span:* Regardless of the starting point, Week 01 always spans a minimum of four days within the starting Hijri year.
+// TODO: replace all hijri instnaces with underlying hijri x
+- *Inclusion of the first Tuesday:* Week 01 always includes the first Tuesday of the Hijri Year.
+- *Minimum Duration:* This week is the earliest in the HWC year which contains at least four days of the underlying Hijri year, aligning with the structural requirements of the HWC.
+- *Commencement Date Variability:* Depending on the underlying Hijri year's structure:
+  - For a year ending on the 29th of Dhu al-Hijja (year-ending-29), week 01 can start as early as the 27th of Dhu al-Hijja of the preceding underlying Hijri year.
+  - For a year concluding on the 30th of Dhu al-Hijja (year-ending-30), this week can commence as early as the 28th of Dhu al-Hijja of the preceding underlying Hijri year.
+- *Earliest Concluding Day:* The week earliest concluding day is 4th of Muharram.
+- *Guaranteed Span:* Regardless of the starting point, week 01 always spans a minimum of four days within the starting underlying Hijri year.
 
-These characteristics ensure that Week 01 serves as a foundational segment in the HWC year, establishing the framework for subsequent weeks and their numbering.
+These characteristics ensure that week 01 serves as a foundational segment in the HWC year, establishing the framework for subsequent weeks and their numbering.
 
 
 == Concluding Week Dynamics: Week 50 or 51
 
-The #link(<disambiguating-Hijri-Year-from-Hijri-Week-Year>)[Hijri week year] concludes with either Week 50 or Week 51. This final week plays a key role in bridging the transition between years and has a number of characteristics:
+The #link(<disambiguating-Hijri-Year-from-Hijri-Week-Year>)[Hijri week year] concludes with either week 50 or week 51. This final week plays a key role in bridging the transition between years and has a number of characteristics:
 
-- *Preceding Week 01:* This week directly precedes Week 01 of the succeeding HWC year.
-- *Inclusion of the Last Tuesday:* The year's final Tuesday is always within this week, marking its significance.
-- *Tuesday's Position:* The middle day of this week, Tuesday, consistently occurs in the ending year, ensuring alignment with the weekly structure.
-- *Conclusion on Friday:* The week terminates on the Friday that is closest to the conclusion of the last month of the preceding year.
-- *Dhu al-Hijja Presence:* At least four days of this week fall within the month of Dhu al-Hijja, marking the end of the lunar year.
+- *Preceding week 01:* This week directly precedes week 01 of the succeeding HWC year.
+- *Tuesday's Position:* The middle day of this week, Tuesday, always occurs in the ending underlying Hijri year and it is the last Tuesday of that year.
+- *Conclusion on Friday:* The week terminates on the Friday that is closest to the last day of the last month of the preceding underlying Hijri year.
+- *Dhu al-Hijja Presence:* At least four days of this week fall within the month of Dhu al-Hijja, marking the end of the underlying Hijri year.
 
 *Characteristics of Week 50:*
 
 - Commencement may be as early as the 20th of Dhu al-Hijja (year-ending-29) or the 21st of Dhu al-Hijja (year-ending-30).
-- The latest it can conclude is the 29th of Dhu al-Hijja of the same year, not extending into the following year.
+- The latest it can conclude is the 28th of Dhu al-Hijja (year-ending-29) or 29th of Dhu al-Hijja (year-ending-30), not extending into the subsequent underlying Hijri year.
 
 *Characteristics of Week 51:*
 
 - It may start as early as the 23rd of Dhu al-Hijja (year-ending-29) or the 24th of Dhu al-Hijja (year-ending-30).
-- The final day can be as late as the 3rd of Muharram of the subsequent Hijri year.
-- The central weekday, Tuesday, is always within the concluding Hijri year, maintaining consistency with the week's structure.
+- The final day can be as late as the 3rd of Muharram of the subsequent underlying Hijri year.
 
 == Characteristics of the Final Tuesday in HWC year
 
-The Last Tuesday of the Hijri Year invariably aligns with the final week of the HWC year, either Week 50 or Week 51. This day is characterized by the following properties:
+The last Tuesday of the underlying Hijri year always aligns with the final week of the HWC year, either week 50 or week 51. This day is characterized by the following properties:
 
-- It marks the conclusion of Tuesdays in both the Hijri Year and the HWC year.
-- It occurs during the ultimate week of the HWC year, which is designated as Week 50 or Week 51.
+- It marks the conclusion of Tuesdays in both the underlying Hijri Year and the HWC year.
+- It occurs during the final week of the HWC year, which is designated as week 50 or week 51.
 
-These attributes establish the Last Tuesday as a significant temporal marker within the Hijri-Week calendar system, delineating the transition between annual cycles.
+These attributes establish the last Tuesday as a significant temporal marker within the HWC system, marking the transition between annual cycles.
 
 == Final Day's Placement in the HWC year
 
-The Last Day of the Hijri Year, either the 29th or 30th of Dhu al-Hijja, delineates the year's end with distinct features:
+The last day of the underlying Hijri year, either the 29th or 30th of Dhu al-Hijja, highlighting the year's end with distinct features:
 
 - The date falls on either the 29th or the 30th of the 12th month (Dhu al-Hijja), regardless of it being a common or leap year.
-- It is positioned within Week 51 or Week 01 of the HWC year. It does not occur in Week 50.
-- For common years concluding on a Tuesday, Wednesday, Thursday, or Friday (days 4, 5, 6, or 7), or for leap years ending on a Saturday, Tuesday, Wednesday, Thursday, or Friday (days 1, 4, 5, 6, or 7), the HWC year comprises 51 weeks.
-- Conversely, for common years ending on a Saturday, Sunday, or Monday (days 1, 2, or 3), or for leap years concluding on a Sunday or Monday (days 2 or 3), the HWC year contains 50 weeks.
+- It is positioned within week 51 or week 01 of the HWC year. It does not occur in week 50.
+- For common years concluding on a Tuesday, Wednesday, Thursday, or Friday (days 4-7), or for leap years ending on a Saturday, Tuesday, Wednesday, Thursday, or Friday (days 1 and 4-7), the HWC year comprises 51 weeks.
+- For common years ending on a Saturday, Sunday, or Monday (days 1-3), or for leap years concluding on a Sunday or Monday (days 2 or 3), the HWC year contains 50 weeks.
 
+// TODO: mid day is different from pivot day: pivot day is 4th of muharram or 27th of dul Hijjah
+// wheras mid day is the middle of the week. go check and fix this everywhere.
 
-== Properties of the Last Week Pivot Day
+== Properties of the Last Week's Pivot Day
 
-The last week pivot day marks a critical reference point in the HWC, occurring three days prior to the year's conclusion. Its characteristics are as follows:
+The last week's pivot day marks a critical reference point in the HWC, occurring three days prior to the HWC year's conclusion. Its characteristics are as follows:
 
-- It consistently occurs during the final week of the HWC year, either Week 50 or Week 51.
+- If the underlying Hijri year concludes on the 29th of Dhu al-Hijja (year-ending-29), the last week's pivot day falls on the 26th of Dhu al-Hijja.
+- If the underlying Hijri year ends on the 30th of Dhu al-Hijja (year-ending-30), this day is observed on the 27th of Dhu al-Hijja.
+- It consistently occurs during the final week of the HWC year, either week 50 or week 51.
 - It is precisely seven days prior to the 4th of Muharram in the subsequent year.
-- If the Hijri year concludes on the 29th of Dhu al-Hijja (year-ending-29), the Last Week Pivot Day falls on the 26th of Dhu al-Hijja (26th of Dhu al-Hijja).
-- If the Hijri year ends on the 30th of Dhu al-Hijja (year-ending-30), this day is observed on the 27th of Dhu al-Hijja (27th of Dhu al-Hijja).
 
-*Note:* The Last Week Pivot Day's occurrence within the final week of the HWC year facilitates the determination of the total number of weeks in that year. This can be achieved by calculating the difference in days between the start of the Hijri Year and the Last Week Pivot Day, then dividing this number by 7 and applying a ceiling function to round up to the nearest whole number.
+*Note:* The occurrence of the last week's pivot day falls within the final week of the HWC year facilitates the determination of the total number of weeks in that year. This can be achieved determining the ordinal day number of the last week's pivot day, then dividing it by 7 and applying a ceiling function to round up to the nearest whole number.
 
 // = Other Days in the First Month of the Hijri Year
 == Week Allocation for Initial Days of Muharram
 
-The initial days of Muharram, the first month of the Hijri Year, have a structured and predictable placement within the HWC:
+The initial days of Muharram, the first month of the Hijri year, have a structured and predictable placement within the HWC:
 
-- The 4th of Muharram invariably falls in Week 01.
-- The 11th of Muharram invariably falls in Week 02.
-- The 18th of Muharram invariably falls in Week 03.
-- The 25th of Muharram invariably falls in Week 04.
-- The 1st, 2nd, and 3rd of Muharram are confined to either Week 01 or the preceding Week 51, depending on the year's structure.
+- The 4th of Muharram always falls in week 01.
+- The 11th of Muharram always falls in week 02.
+- The 18th of Muharram always falls in week 03.
+- The 25th of Muharram always falls in week 04.
+- The 1st, 2nd, and 3rd of Muharram are confined to either week 01 or the preceding week 51, depending on the year's structure.
 
 = Tables
 
@@ -395,7 +402,7 @@ The initial days of Muharram, the first month of the Hijri Year, have a structur
   ],
 )
 
-*Note*: it must not be assumed that the final month (month 12) being 30 days represents a leap-year in all Hijri calendars because non-tabular calendars such as Um Al-Qura calendar can have the extra day needed to make-up a leap year inserted at the end of any of the other 29 day months 
+*Note*: It must not be assumed that the final month (month 12) being 30 days represents a leap-year in all Hijri calendars, because non-tabular calendars such as the Umm Al-Qura calendar can have the extra day needed to make-up a leap year inserted at the end of any of the other 29-day months.
 
 == Example of Hijri Year Ending 29 days
 
@@ -406,5 +413,5 @@ The initial days of Muharram, the first month of the Hijri Year, have a structur
   ],
 )
 
-*Note*: The year ending with a 29 days month could be a common year or a leap year as non-tabular calendars such as Um Al-Qura calendar can have the extra day needed to make-up a leap year inserted at the end of any of the other 29 day months
+*Note*: The year ending with a 29-day month could be a common year or a leap year as non-tabular calendars such as the Umm Al-Qura calendar can have the extra day needed to make-up a leap year inserted at the end of any of the other 29-day months.
 
