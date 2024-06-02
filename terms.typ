@@ -62,7 +62,6 @@
   //   link: [ISO 8601-1:2019, Date and time — Representations for information interchange — Part 1: Basic rules (publicly avaialble informative sections)]
   // ),
 
-  // TODO: should we change this to HWC calendar week.
   / Hijri calendar week: A duration of seven calendar days which begins on Saturday and ends on Friday according to the #link("hijri-week-calendar")[Hijri week calendar]. #label("hijri-calendar-week")
 
 

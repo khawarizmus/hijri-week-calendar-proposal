@@ -5,7 +5,7 @@
 
 The HWC (HWC) is a leap week date system based on the fundamentals of the ISO 8601 week date system.
 
-The HWC specifies a week of year atop any of the compatible Hijri calendars by defining a notation for ordinal weeks of the year. The HWC is a standard representation of the underlying Hijri calendar and therefore shares the accuracy of the underlying Hijri calendar. The resulting Hijri week date may be different depending on the underlying Hijri calendar used. Therefore, it is important to reference the Hijri calendar with the HWC representation when in need of interoperability.
+The HWC specifies a week of year atop any of the compatible Hijri calendars by defining a notation for ordinal weeks of the year. The HWC is a standard representation of the underlying Hijri calendar and therefore shares the accuracy of the underlying Hijri calendar. The resulting Hijri week date may be different depending on the underlying Hijri calendar used. Therefore, it is important to reference the underlying Hijri calendar with the HWC representation when in need of interoperability.
 
 Because the HWC is designed to work with many types of Hijri calendars, implementers of the HWC may need to create seperate implementations for each Hijri calendar. This should not be seen as a limitation but rather as a versatile feature allowing the HWC to be used with any Hijri calendar that may be introduced in the future.
 
@@ -111,8 +111,8 @@ An instance of an arithmetical Hijri calendar is the #text(style: "italic")[isla
 
 // source: https://github.com/unicode-org/icu/blob/main/icu4c/source/i18n/islamcal.cpp#L572
 
-// TODO: Khalid to double check how to rephrase this
-*Implementation inaccuracies:* The current implementation inaccurately handles negative years (before the Hijra) and months can potentially have up to 31 days, which deviates from the actual lunar month length making it incompatible with HWC.
+
+*Implementation inaccuracies:* The current implementation inaccurately handles negative years, which are years before the Hijra. Additionally, months can potentially have up to 31 days, deviating from the actual lunar month length of 29 or 30 days. It can also have years with 353 days, which deviates from the Hijri year length of 354 or 355 days, making it incompatible with the HWC.
 
 // source: https://github.com/unicode-org/icu/blob/main/icu4c/source/i18n/islamcal.cpp#L229
 
@@ -189,12 +189,12 @@ This structure contrasts with the typical Hijri year, which generally spans 354 
 
 The HWC system adopts a week numbering methodology equivalant to the ISO 8601 standard, with a pivotal modification centered around the definition of the first and last calendar weeks of the year. The rules are as follows:
 
-- *First calendar week (Week 01):* This is defined as the week that encompasses the first Tuesday of the Hijri year. It marks the commencement of the HWC year and its week numbering sequence.
+- *First calendar week (Week 01):* This is defined as the week that encompasses the first Tuesday of the underlying Hijri year. It marks the commencement of the HWC year and its week numbering sequence.
 - *Last calendar week:* This is the week immediately preceding the first calendar week of the subsequent HWC year, effectively closing the HWC year week numbering sequence.
 
 The primary distinction from the ISO 8601 standard lies in the selection of the pivotal day of the week. While ISO 8601 considers Thursday as the pivotal day, the HWC system designates *Tuesday* as the pivotal day around which week boundaries are determined.
 
-This adjustment ensures that each HWC year aligns consistently with the characteristic of the temporal structure of the Hijri calendar, honoring its unique cultural and religious context.
+This adjustment ensures that each HWC year aligns consistently with the characteristic of the temporal structure of the underlying Hijri calendar, honoring its unique cultural and religious context.
 
 // we chose tuesday because weeks should start on saturday
 // weeks should start on satruday beacuse of relegious conciderations (friday last day)
@@ -209,29 +209,28 @@ In the HWC, dates are structured to ensure clarity and standardization, closely 
 
 Hence, a complete Hijri week date is represented in the extended format as YYYY-Www-d. For more compact communication, the date can be condensed into the format YYYYWwwd.
 
-// TODO: check what calendar is this date using under the hood and specefy it
-For instance, the Hijri (Islamic) date *Thursday, 15 Jumada II 1445* translates to the 6th day (Thursday) of the 23rd week in the year 1445. This date is formally expressed in the extended format as *`1445-W23-6`* and in the compact format as *`1445W236`*.
+For instance, the Hijri date *Thursday, 15 Jumada II 1445* as per #text(style: "italic")[islamic-umalqura] translates to the 6th day (Thursday) of the 23rd week in the year 1445 in the HWC. This date is formally expressed in the extended format as *`1445-W23-6`* and in the compact format as *`1445W236`*.
 
 == Disambiguating Hijri Year from HWC Year <disambiguating-Hijri-Year-from-Hijri-Week-Year>
 
-In the context of date notation, it's essential to distinguish clearly between the Hijri year and the HWC year, as they represent different temporal frameworks. The convention for this distinction is as follows:
+In the context of date notation, it's essential to distinguish clearly between the underlying Hijri year and the HWC year, as they represent different temporal frameworks. The convention for this distinction is as follows:
 
 - *Hijri year:* Denoted as a numerical year followed by the suffix 'AH' (Anno Hegirae), indicating the traditional lunar Hijri calendar year. For example, the year 1445 in the Hijri calendar is expressed as *1445 AH*.
 - *HWC year:* Similar to the Hijri year but differentiated by appending a 'W' immediatly after the year before the 'AH' suffix. This signifies adherence to the HWC system. Thus, the HWC year corresponding to 1445 AH would be denoted as *`1445W AH`*.
 
-This notation ensures unambiguous communication by clearly differentiate the conventional Hijri calendar from the HWC system.
+This notation ensures unambiguous communication by clearly differentiate the conventional underlying Hijri calendar from the HWC system.
 
 == Calendar Awareness for Hijri Week Dates
 
-When working with different systems that use the HWC or when using different Hijri calendars within a system that uses the HWC, it is essential to specify the underlying Hijri calendar for any specific Hijri week date to ensure accurate date conversion from a Hijri week date to a Hijri date. The mapping of the Hijri week date to its underlying Hijri calendar is as follows:
+When working with different systems that use the HWC or when using different underlying Hijri calendars within a system that uses the HWC, it is essential to specify the underlying Hijri calendar for any specific Hijri week date to ensure accurate date conversion from a Hijri week date to a Hijri date. The mapping of the Hijri week date to its underlying Hijri calendar is as follows:
 
 - *Hijri Week Date (`YYYY-Www-d` or `YYYYWwwd`):* Expressed in the format `YYYY-Www-d` or the compact format `YYYYWwwd`. See @formatting-the-hijri-week-date-system.
 - *Underlying Hijri Calendar (`[u-ca=<calendar-identifier>]`):* The specific Hijri calendar used to determine the corresponding Hijri date. This information is crucial for accurate conversion from the Hijri week date to the designated Hijri date. the suffix key `u-ca` is allocated to indicate the underlying Hijri calendar in which the Hijri week date should be presented. Possible values for the calendar identifier include the ICU Hijri calendar identifiers that are compatible with the HWC such as `islamic-civil`, `islamic-tbla`, and `islamic-umalqura`. See @compatible-calendars.
 
 By associating the Hijri week date with the underlying Hijri calendar, the corresponding Hijri date can be determined precisely, ensuring consistency and accuracy in date representation across different systems and contexts.
 
-// TODO: check if we can reference the standard hint: https://datatracker.ietf.org/doc/html/rfc9557
-For example, the Hijri week date *`1445-W23-6[u-ca=islamic-umalqura]`* specifies that the underlying Hijri calendar used is the Umm Al-Qura calendar.
+For example, the Hijri week date *`1445-W23-6[u-ca=islamic-umalqura]`* specifies that the underlying Hijri calendar used is the Umm Al-Qura calendar. (This calendar notation is also used by the RFC 9557.)
+// as seen in : https://datatracker.ietf.org/doc/html/rfc9557#section-5
 
 
 When working with Hijri week dates across different Hijri calendars, it is essential to convert the Hijri week date to the corresponding Hijri date in the specified calendar before converting it to another Hijri calendar. This is due to the absence of direct conversion between Hijri calendars in the HWC system.
@@ -284,7 +283,7 @@ Consider the date: Wednesday 18 Shaʿbān 1445 AH using Umm Al-Qura Hijri calend
 3. Tueday 17 Shaʿbān 1445 AH yearly ordinal date is: 229.
 4. We determine the week number by dividing the ordinal date and rounding it up: 229 / 7 ≈ 33.
 
-This means that Wednesday 18 Shaʿbān occurs on the 33rd week of 1445 AH as per the Umm Al-Qura Hijri calendar
+This means that Wednesday 18 Shaʿbān occurs on the 33rd week of 1445 AH as per the Umm Al-Qura Hijri calendar.
 
 
 == The Beginning of The HWC Year and its Length
@@ -314,8 +313,7 @@ The starting day of the Hijri Year is critical for defining the total weeks in t
 
 The first week (week 01) of the HWC year is characterized by specific temporal properties that establish its position and duration within the calendar system. These properties are:
 
-// TODO: replace all hijri instnaces with underlying hijri x
-- *Inclusion of the first Tuesday:* Week 01 always includes the first Tuesday of the Hijri Year.
+- *Inclusion of the first Tuesday:* Week 01 always includes the first Tuesday of the underlying Hijri Year.
 - *Minimum Duration:* This week is the earliest in the HWC year which contains at least four days of the underlying Hijri year, aligning with the structural requirements of the HWC.
 - *Commencement Date Variability:* Depending on the underlying Hijri year's structure:
   - For a year ending on the 29th of Dhu al-Hijja (year-ending-29), week 01 can start as early as the 27th of Dhu al-Hijja of the preceding underlying Hijri year.
@@ -362,9 +360,6 @@ The last day of the underlying Hijri year, either the 29th or 30th of Dhu al-Hij
 - It is positioned within week 51 or week 01 of the HWC year. It does not occur in week 50.
 - For common years concluding on a Tuesday, Wednesday, Thursday, or Friday (days 4-7), or for leap years ending on a Saturday, Tuesday, Wednesday, Thursday, or Friday (days 1 and 4-7), the HWC year comprises 51 weeks.
 - For common years ending on a Saturday, Sunday, or Monday (days 1-3), or for leap years concluding on a Sunday or Monday (days 2 or 3), the HWC year contains 50 weeks.
-
-// TODO: mid day is different from pivot day: pivot day is 4th of muharram or 27th of dul Hijjah
-// wheras mid day is the middle of the week. go check and fix this everywhere.
 
 == Properties of the Last Week's Pivot Day
 
