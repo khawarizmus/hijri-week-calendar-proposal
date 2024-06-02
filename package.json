@@ -1,6 +1,6 @@
 {
   "name": "hijri-week-calendar-standard",
-  "version": "1.0.0-draft.7",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
