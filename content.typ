@@ -1,6 +1,6 @@
-#import "@preview/tablex:0.0.8": tablex, cellx
 #import "@preview/outrageous:0.1.0"
 
+// Quotes use single quote
 = Introduction
 
 The HWC (HWC) is a leap week date system based on the fundamentals of the ISO 8601 week date system.
@@ -63,20 +63,19 @@ Tabular Hijri calendars employ a systematic arrangement of months, alternating b
 
 The structure of Tabular Hijri calendars is cyclical, encompassing a 30-year period. Within this cycle, there are 19 common years, each with a duration of 354 days, and 11 leap years, each lasting 355 days. The aggregate of days over the entire cycle amounts to 10,631. The allocation of leap years is methodical, adhering to one of four distinct schemas:
 
-// docs of tablex: https://github.com/PgBiel/typst-tablex
-// TODO: fix the quotes to a caption
-#tablex(
-  columns: 2,
-  [Type],[Intercalary years with 355 days inserted at year No],
-  [Type I],[2, 5, 7, 10, 13, #text(red, weight: "bold")[15], 18, 21, 24, 26, 29],
-  [Type II], [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29],
-  [Type III], [2, 5, 8, 10, 13, 16, 19, 21, 24, #text(blue, weight: "bold")[27], 29],
-  [Type IV], [2, 5, 8, #text(orange, weight: "bold")[11], 13, 16, 19, 21, 24, 27, #text(orange, weight: "bold")[30]]
+#figure(
+  table(
+    columns: 2,
+    [Type],[Intercalary years with 355 days inserted at year No],
+    [Type I],[2, 5, 7, 10, 13, #text(red, weight: "bold")[15], 18, 21, 24, 26, 29],
+    [Type II], [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29],
+    [Type III], [2, 5, 8, 10, 13, 16, 19, 21, 24, #text(blue, weight: "bold")[27], 29],
+    [Type IV], [2, 5, 8, #text(orange, weight: "bold")[11], 13, 16, 19, 21, 24, 27, #text(orange, weight: "bold")[30]]
+  ),
+  caption: [
+    The highlighted years in each schema signefies the difference of each schema relative to Type II.
+  ]
 )
-
-#quote([
-  Note: The highlighted years in each schema signefies the difference of each schema relative to Type II.
-])
 
 Among these, Type II is most prevalent and is the exclusive choice in the context of the International Components for Unicode (ICU). Specifically, ICU employs the Type II schema for its #text(style: "italic")[islamic-civil] and #text(style: "italic")[islamic-tbla] calendars, though each calendar operates on its distinct epoch, differentiating their respective computations and applications.
 
@@ -90,8 +89,8 @@ These calendars utilize astronomical data to predict the start of each lunar mon
 
 *Key Characteristics of Astronomical Hijri Calendars:*
 
-// TODO: double check if this is true
-- *Conjunction-based Initiation:* The commencement of each month is determined by the calculated time of the lunar conjunction, the point at which the moon and the sun align as viewed from Earth.
+
+- *Conjunction-based Initiation:* The start of each month in the Astronomical Hijri calendar is determined by the precise calculation of the lunar conjunction. This is the moment when the moon and the sun are exactly aligned as viewed from Earth.
 
 - *Location-specific Calculations:* The calendar's calculations are tailored to the conditions of moon visibility at a particular geographic location, ensuring the calendar's alignment with local observational parameters.
 
@@ -122,7 +121,7 @@ An instance of an arithmetical Hijri calendar is the #text(style: "italic")[isla
 
 The ICU defines five Hijri calendars, each with unique characteristics and applications. Below is a detailed breakdown of these calendars and their compatibility with the HWC system.
 
-#tablex(
+#table(
   columns: 4,
   [Calendar], [Compatible], [Type], [Notes],
   
@@ -165,7 +164,7 @@ This methodical approach effectively recalibrates the ISO weekday numbering to a
 
 The followin table outlines the relationship between HWC and ISO weekday numbering systems.
 
-#tablex(
+#table(
   columns: 6,
   [Weekday], [HWC Day Number], [ISO Day Number], [Add 2 to ISO], [MOD 7], [logical OR with 7],
   [Saturday], [1], [6], [6+2 = 8], [1], [1],
@@ -178,8 +177,6 @@ The followin table outlines the relationship between HWC and ISO weekday numberi
 )
 
 == Week Numbering
-
-// TODO: make sure that all quotes are the same (double vs single)
 
 In the HWC system, a year is categorized as either being 'short' or 'long' based on the total count of weeks it comprises. Specifically:
 
@@ -266,7 +263,7 @@ To calculate the specific week number for a given Hijri date:
 3. Determine the yearly ordinal date for the date obtained from step 2.
 4. Divide the yearly ordinal date number from step 3 by 7 and round it up. This results in the week number counting from the start of the Hijri year.
 
-#tablex(
+#table(
   columns: 4,
   [Weekday], [Weekday No], [Offset to Closest Tuesday (4 - Weekday No)], [Note],
   [Saturday], [1], [+3 ], [Next Tuesday],
