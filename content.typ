@@ -1,4 +1,9 @@
 #import "@preview/outrageous:0.1.0"
+#import "@preview/note-me:0.2.1": *
+
+#let gnote(text) = admonition(
+  title: "Note",
+  color: color.green.darken(40%))[#text]
 
 // Quotes use single quote
 = Introduction
@@ -64,18 +69,18 @@ Tabular Hijri calendars employ a systematic arrangement of months, alternating b
 The structure of Tabular Hijri calendars is cyclical, encompassing a 30-year period. Within this cycle, there are 19 common years, each with a duration of 354 days, and 11 leap years, each lasting 355 days. The aggregate of days over the entire cycle amounts to 10,631. The allocation of leap years is methodical, adhering to one of four distinct schemas:
 
 #figure(
-  table(
-    columns: 2,
-    [Type],[Intercalary years with 355 days inserted at year No],
-    [Type I],[2, 5, 7, 10, 13, #text(red, weight: "bold")[15], 18, 21, 24, 26, 29],
-    [Type II], [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29],
-    [Type III], [2, 5, 8, 10, 13, 16, 19, 21, 24, #text(blue, weight: "bold")[27], 29],
-    [Type IV], [2, 5, 8, #text(orange, weight: "bold")[11], 13, 16, 19, 21, 24, 27, #text(orange, weight: "bold")[30]]
-  ),
-  caption: [
-    The highlighted years in each schema signefies the difference of each schema relative to Type II.
-  ]
-)
+table(
+  columns: 2,
+  [Type],[Intercalary years with 355 days \ inserted at year Nos.],
+  [Type I],[2, 5, 7, 10, 13, #text(red, weight: "bold")[15], 18, 21, 24, 26, 29],
+  [Type II], [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29],
+  [Type III], [2, 5, 8, 10, 13, 16, 19, 21, 24, #text(blue, weight: "bold")[27], 29],
+  [Type IV], [2, 5, 8, #text(orange, weight: "bold")[11], 13, 16, 19, 21, 24, 27, #text(orange, weight: "bold")[30]],
+))
+
+#gnote[
+The highlighted years in each schema signifies the difference of each schema relative to Type II.
+]
 
 Among these, Type II is most prevalent and is the exclusive choice in the context of the International Components for Unicode (ICU). Specifically, ICU employs the Type II schema for its #text(style: "italic")[islamic-civil] and #text(style: "italic")[islamic-tbla] calendars, though each calendar operates on its distinct epoch, differentiating their respective computations and applications.
 
@@ -162,7 +167,9 @@ The conversion from ISO weekday numbering to HWC weekday numbering involves a si
 
 This methodical approach effectively recalibrates the ISO weekday numbering to align with the HWC's structure, ensuring that each day of the week is accurately represented in the context of the HWC.
 
-The followin table outlines the relationship between HWC and ISO weekday numbering systems.
+#pagebreak()
+
+The following table outlines the relationship between HWC and ISO weekday numbering systems.
 
 #table(
   columns: 6,
@@ -199,6 +206,8 @@ This adjustment ensures that each HWC year aligns consistently with the characte
 // we chose tuesday because weeks should start on saturday
 // weeks should start on satruday beacuse of relegious conciderations (friday last day)
 
+#pagebreak()
+
 == Formatting the Hijri Week Date System <formatting-the-hijri-week-date-system>
 
 In the HWC, dates are structured to ensure clarity and standardization, closely paralleling the format utilized by the ISO 8601 week-numbering system. The format components are as follows:
@@ -229,7 +238,7 @@ When working with different systems that use the HWC or when using different und
 
 By associating the Hijri week date with the underlying Hijri calendar, the corresponding Hijri date can be determined precisely, ensuring consistency and accuracy in date representation across different systems and contexts.
 
-For example, the Hijri week date *`1445-W23-6[u-ca=islamic-umalqura]`* specifies that the underlying Hijri calendar used is the Umm Al-Qura calendar. (This calendar notation is also used by the RFC 9557.)
+For example, the Hijri week date *`1445-W23-6[u-ca=islamic-umalqura]`* specifies that the underlying Hijri calendar used is the Umm Al-Qura calendar. (This calendar notation is also used by the RFC 9557@igalia2024rfc)
 // as seen in : https://datatracker.ietf.org/doc/html/rfc9557#section-5
 
 
@@ -343,6 +352,8 @@ The #link(<disambiguating-Hijri-Year-from-Hijri-Week-Year>)[Hijri week year] con
 - It may start as early as the 23rd of Dhu al-Hijja (year-ending-29) or the 24th of Dhu al-Hijja (year-ending-30).
 - The final day can be as late as the 3rd of Muharram of the subsequent underlying Hijri year.
 
+#pagebreak()
+
 == Characteristics of the Final Tuesday in HWC year
 
 The last Tuesday of the underlying Hijri year always aligns with the final week of the HWC year, either week 50 or week 51. This day is characterized by the following properties:
@@ -370,7 +381,11 @@ The last week's pivot day marks a critical reference point in the HWC, occurring
 - It consistently occurs during the final week of the HWC year, either week 50 or week 51.
 - It is precisely seven days prior to the 4th of Muharram in the subsequent year.
 
-*Note:* The occurrence of the last week's pivot day falls within the final week of the HWC year facilitates the determination of the total number of weeks in that year. This can be achieved determining the ordinal day number of the last week's pivot day, then dividing it by 7 and applying a ceiling function to round up to the nearest whole number.
+#gnote[
+The occurrence of the last week's pivot day falls within the final week of the HWC year facilitates the determination of the total number of weeks in that year. This can be achieved determining the ordinal day number of the last week's pivot day, then dividing it by 7 and applying a ceiling function to round up to the nearest whole number.
+]
+
+#pagebreak()
 
 // = Other Days in the First Month of the Hijri Year
 == Week Allocation for Initial Days of Muharram
@@ -388,22 +403,31 @@ The initial days of Muharram, the first month of the Hijri year, have a structur
 == Example of Hijri Year Ending 30 days
 
 #figure(
-  image("images/table-01.jpg", width: 80%),
+  image("images/table-01-fixed.png", width: 80%),
   caption: [
     Distribution of the weeks at the start of a year where the ending Hijri year (previous year) ends with the last month having 30 days.
   ],
 )
 
-*Note*: It must not be assumed that the final month (month 12) being 30 days represents a leap-year in all Hijri calendars, because non-tabular calendars such as the Umm Al-Qura calendar can have the extra day needed to make-up a leap year inserted at the end of any of the other 29-day months.
+#gnote[
+It must not be assumed that the final month (month 12) being 30 days represents a leap-year in all Hijri calendars, because non-tabular calendars such as the Umm Al-Qura calendar can have the extra day needed to make-up a leap year inserted at the end of any of the other 29-day months.
+]
+
+#pagebreak()
 
 == Example of Hijri Year Ending 29 days
 
 #figure(
-  image("images/table-02.jpg", width: 80%),
+  image("images/table-02-fixed.png", width: 80%),
   caption: [
      Distribution of the weeks at the start of a year where the ending Hijri year (previous year) ends with the last month having 29 days.
   ],
 )
 
-*Note*: The year ending with a 29-day month could be a common year or a leap year as non-tabular calendars such as the Umm Al-Qura calendar can have the extra day needed to make-up a leap year inserted at the end of any of the other 29-day months.
+#gnote[
+The year ending with a 29-day month could be a common year or a leap year as non-tabular calendars such as the Umm Al-Qura calendar can have the extra day needed to make-up a leap year inserted at the end of any of the other 29-day months.
+]
 
+#v(1fr)
+
+#bibliography("ref.bib", style: "chicago-notes")

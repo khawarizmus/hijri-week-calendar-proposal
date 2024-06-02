@@ -1,6 +1,7 @@
 #import "layout.typ": title, subtitle, authors, affiliations, abstract, margins, publishDate, keywords
 #import "lapreprint.typ": template
 
+
 #show: template.with(
   title: title,
   subtitle: subtitle,
