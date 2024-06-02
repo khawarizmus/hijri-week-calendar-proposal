@@ -112,12 +112,12 @@ Arithmetical Hijri calendars calculate Hijri dates using predetermined arithmeti
 
 An instance of an arithmetical Hijri calendar is the #text(style: "italic")[islamic] calendar as implemented by the ICU. While this calendar provides a structured and algorithmic approach to converting Gregorian dates to Hijri dates, the implementation has certain limitations:
 
-*Bounded accuracy:* The algorithm uses a rough estimation method, which is primarily effective within a specific range of years. It is noted in the implementation that this method is roughly accurate for Gregorian years 1846-2138, with an estimated error rate of 3% outside this range.
+*Bounded accuracy:* The algorithm uses a rough estimation method, which is primarily effective within a specific range of years. It is noted in the implementation that this method is roughly accurate for Gregorian years 1846-2138, with an estimated error rate of 3% outside this range.#footnote[https://github.com/unicode-org/icu/blob/main/icu4c/source/i18n/islamcal.cpp#L572]
 
 // source: https://github.com/unicode-org/icu/blob/main/icu4c/source/i18n/islamcal.cpp#L572
 
 
-*Implementation inaccuracies:* The current implementation inaccurately handles negative years, which are years before the Hijra. Additionally, months can potentially have up to 31 days, deviating from the actual lunar month length of 29 or 30 days. It can also have years with 353 days, which deviates from the Hijri year length of 354 or 355 days, making it incompatible with the HWC.
+*Implementation inaccuracies:* The current implementation inaccurately handles negative years, which are years before the Hijra. Additionally, months can potentially have up to 31 days, deviating from the actual lunar month length of 29 or 30 days. It can also have years with 353 days, which deviates from the Hijri year length of 354 or 355 days, making it incompatible with the HWC.#footnote[https://github.com/unicode-org/icu/blob/main/icu4c/source/i18n/islamcal.cpp#L229]
 
 // source: https://github.com/unicode-org/icu/blob/main/icu4c/source/i18n/islamcal.cpp#L229
 
@@ -430,4 +430,4 @@ The year ending with a 29-day month could be a common year or a leap year as non
 
 #v(1fr)
 
-#bibliography("ref.bib", style: "chicago-notes")
+#bibliography("ref.bib", style: "chicago-fullnotes")
