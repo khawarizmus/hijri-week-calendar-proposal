@@ -1,4 +1,4 @@
-cff-version: 1.0.1
+cff-version: 1.0.2
 message: "Below is how you can cite this repo."
 authors:
   - family-names: "Alyaﬁe"
@@ -6,6 +6,6 @@ authors:
   - family-names: "Bekkai"
     given-names: "Amine Fatah"
 title: "Hijri Week Calendar"
-version: 1.0.1
+version: 1.0.2
 date-released: 2024-06-02
 url: "https://github.com/khawarizmus/hijri-week-calendar-proposal"
