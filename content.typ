@@ -8,7 +8,7 @@
 // Quotes use single quote
 = Introduction
 
-The HWC (HWC) is a leap week date system based on the fundamentals of the ISO 8601 week date system.
+The Hijri week calendar (HWC) is a leap week date system based on the fundamentals of the ISO 8601 week date system.
 
 The HWC specifies a week of year atop any of the compatible Hijri calendars by defining a notation for ordinal weeks of the year. The HWC is a standard representation of the underlying Hijri calendar and therefore shares the accuracy of the underlying Hijri calendar. The resulting Hijri week date may be different depending on the underlying Hijri calendar used. Therefore, it is important to reference the underlying Hijri calendar with the HWC representation when in need of interoperability.
 
